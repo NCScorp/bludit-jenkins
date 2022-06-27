@@ -1,8 +1,8 @@
 class FileVersionLine:
     def __init__(self, nameExe, versionExe, dateRelease):
-        self.nameExe = nameExe
-        self.versionExe = versionExe
-        self.dateRelease = dateRelease
+        self.__nameExe = nameExe
+        self.__versionExe = versionExe
+        self.__dateRelease = dateRelease
 
     exceptionList = [
         "nsjAssinatura.exe",
@@ -20,7 +20,7 @@ class FileVersionLine:
 
     @property
     def description(self):
-        description = self.nameExe
+        description = self.__nameExe
 
         description = description.replace("nsj", "")
         description = description.replace(".exe", "")
@@ -28,31 +28,31 @@ class FileVersionLine:
         return description.strip()
 
     def canShow(self):
-        if not self.nameExe in self.exceptionList:
+        if not self.__nameExe in self.exceptionList:
             return self.exceptionList
     
     @property
     def nameExe(self):
-        return self.nameExe
+        return self.__nameExe
 
     @nameExe.setter
     def nameExe(self, nameExe):
-        self.nameExe = nameExe
+        self.__nameExe = nameExe
 
     @property
     def versionExe(self):
-        return self.versionExe
+        return self.__versionExe
 
     @versionExe.setter
     def versionExe(self, versionExe):
-        self.versionExe = versionExe
+        self.__versionExe = versionExe
 
     @property
     def dateRelease(self):
-        return self.dateRelease
+        return self.__dateRelease
 
     @dateRelease.setter
     def dateRelease(self, dateRelease):
-        self.dateRelease = dateRelease
+        self.__dateRelease = dateRelease
     
     

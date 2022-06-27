@@ -1,10 +1,10 @@
 class Posts:
     def __init__(self, title, content, slug, categories, status = "publish"):
-        self.title = title
-        self.content = content
-        self.slug = slug
-        self.status = status
-        self.categories = categories
+        self.__title = title
+        self.__content = content
+        self.__slug = slug
+        self.__status = status
+        self.__categories = categories
     
     @property
     def title(self):
@@ -21,7 +21,7 @@ class Posts:
     @content.setter
     def content(self, content):
         self.__content = content
-    
+          
     @property
     def slug(self):
         return self.__slug

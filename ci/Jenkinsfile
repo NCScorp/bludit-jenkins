@@ -1,0 +1,13 @@
+node("master"){
+    def dirArtifactName = "teste-maroto"
+
+    stage("Checkout"){
+        dir("${dirArtifactName}"){
+            timeout(time: 30, unit: "SECONDS"){
+                checkout scm
+            }
+        }
+    }
+
+    
+}
