@@ -13,4 +13,9 @@ class App:
 
     args = parser.parse_args()
 
-    if 
+    if args.j and args.i:
+        jobname = args.j
+        jobId = args.i
+        useProxy = args.p
+
+    
