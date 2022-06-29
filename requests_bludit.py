@@ -2,11 +2,10 @@ import requests
 from config import *
 from posts import Posts
 
-txt = Posts('teste', 'opa, bão?', 'teste-slug', categories='categoria-teste')
-
+txt = Posts('teste', 'opa, SALVE?', 'teste-slug', categories='categoria-teste')
 data = {
-    'token': TOKEN_API,
     'authentication': AUTHENTICATION,
+    'token': TOKEN_API,
     'title': txt.title,
     'content': txt.content,
     'slug': txt.slug,

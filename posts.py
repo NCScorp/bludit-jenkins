@@ -1,6 +1,8 @@
 class Posts:
-    def __init__(self, title, content, slug, categories, status = "publish"):
+    def __init__(self, title, content, slug, categories, authentication = None, tokenApi = None, status = "publish"):
         self.__title = title
+        self.__authentication = authentication
+        self.__tokenApi = tokenApi
         self.__content = content
         self.__slug = slug
         self.__status = status
@@ -9,10 +11,26 @@ class Posts:
     @property
     def title(self):
         return self.__title
-    
+
     @title.setter
     def title(self, title):
         self.__title = title
+
+    @property
+    def authentication(self):
+        return self.__authentication
+    
+    @authentication.setter
+    def authentication(self, authentication):
+        self.__authentication = authentication
+    
+    @property
+    def tokenApi(self):
+        return self.__tokenApi
+    
+    @tokenApi.setter
+    def tokenApi(self, tokenApi):
+        self.__tokenApi = tokenApi
 
     @property
     def content(self):
