@@ -1,7 +1,6 @@
-from typing import List
-from jekins_web import JenkinsWeb
+from jenkins import Jenkins
 
-class JenkinsV2(JenkinsWeb):
+class JenkinsV2(Jenkins):
     def __init__(self, jobName, jobId, useProxy, fileVersionPath, proxyHostName, proxyPort, branchName):
         super().__init__(jobName, jobId, useProxy, fileVersionPath, proxyHostName, proxyPort)
         self.__branchName = branchName

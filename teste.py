@@ -1,18 +1,21 @@
-import argparse
+# import argparse
 
-parse = argparse.ArgumentParser(description="Flags do programa")
-parse.add_argument('-v', nargs='*', help="teste with v")
-parse.add_argument('-l', help="teste with l")
+# parse = argparse.ArgumentParser(description="Flags do programa")
+# parse.add_argument('-v', nargs='*', help="teste with v")
+# parse.add_argument('-l', help="teste with l")
 
-args = parse.parse_args()
+# args = parse.parse_args()
 
-if args.v:
-    if "zeca" in args.v:
-        print("opa, esse não!")
-    else:
-        print("este é com v: ",args.v)
-if args.l:
-    print("Este é com L:",args.l)
+
+# if args.v:
+#     if "zeca" in args.v:
+#         print("opa, esse não!")
+#     else:
+#         print("este é com v: ",args.v)
+#         argu = args.v
+#         print(argu[0], argu[1])
+# if args.l:
+#     print("Este é com L:",args.l)
 # from datetime import datetime
 # import json
 # import getopt
@@ -101,3 +104,12 @@ if args.l:
 
 # print(x.ray)
 # print(type(x.ray))
+
+fruta  = ['banana', 'estrogone', 'lebolebo']
+legume = ['cenoura', 'xa', 'fodase']
+
+# legume += fruta
+
+lista_do_marinalva = ['raulgil', 'estrogone', 'lebolebo']    
+legume += [i for i in fruta if i in lista_do_marinalva]
+print(legume)

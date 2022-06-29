@@ -1,18 +1,18 @@
 from enum import Enum
 from datetime import datetime
 from config import *
-from job_avulsos import JobAvulsos
-from job_banco import JobBanco
-from job_instalador_jenkins_v2 import JobsInstaladorJenkinsV2
-from job_instalador_mdfe import JobInstaladorMDFE
-from job_instalador_multinotas import JobInstaladorMultinotas
-from job_master import JobMaster
+# from job_avulsos import JobAvulsos
+# from job_banco import JobBanco
+# from job_instalador_jenkins_v2 import JobsInstaladorJenkinsV2
+# from job_instalador_mdfe import JobInstaladorMDFE
+# from job_instalador_multinotas import JobInstaladorMultinotas
+# from job_master import JobMaster
 
 class URL_TYPE(Enum):
     INTERNO = 1
     CLIENTE = 2
 
-class Job():
+class Job:
     def __init__(self, categories, json, jobName, failures, compilarV1, fileVersionPath):
         self.__categories = categories
         self.__json = json

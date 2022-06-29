@@ -4,7 +4,7 @@ from job import Job
 
 from posts import Posts
 
-class JenkinsWeb:
+class Jenkins:
     def __init__(self, jobName, jobId, useProxy, compilarV1, fileVersionPath, proxyHostName, proxyPort):
         self.__jobName = jobName
         self.__jobId = jobId
