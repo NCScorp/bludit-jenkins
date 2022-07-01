@@ -1,5 +1,4 @@
 from datetime import datetime
-from functools import cmp_to_key
 from file_version_line import FileVersionLine
 from job import Job, URL_TYPE
 
@@ -9,8 +8,7 @@ class JobsInstaladorJenkinsV2(Job):
 
     @property    
     def title(self):
-        self.__json = super().configJson()
-        
+        self.__json = super().configJson()    
         return self.__json["fullDisplayName"]
 
     @property

@@ -30,7 +30,7 @@ class Job:
     def getHtml(self):
         pass
     
-    def getLinkInstaladorAgent(self, a_tyUrl: URL_TYPE):
+    def getLinkInstaladorAgent(self, a_tyUrl):
         return f"https://{a_tyUrl == URL_TYPE.CLIENTE if CDN_NASAJON else STATIC_NASAJON}/instaladores/nsjInstaladorAgente.exe"
     
     def getLinkInstaladorCliente(self, a_tyUrl: URL_TYPE):
