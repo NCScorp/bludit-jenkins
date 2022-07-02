@@ -1,5 +1,6 @@
 import json
 import requests
+from instances import getInstance
 from job import Job
 
 from posts import Posts
@@ -20,12 +21,11 @@ class Jenkins:
 
     def getEntity(self, uri):
         req = requests.get(uri)
-
         if self.__useProxy:
             proxy = {"http": f'http://{self.__proxyHostName}:{self.__proxyPort}'}
-            config = requests.get(uri, proxies=proxy)
-        
-        return config.content
+            req = requests.get(uri, proxies=proxy)
+            
+        return req.content
 
     def getLastFailures(self):
         success = False
@@ -34,7 +34,7 @@ class Jenkins:
 
         while not success:
             jobId -= 1
-            uri = f"http://{self.baseUrl}/job/{self.__jobName}/{jobId}/api/json"
+            uri = f"http://{self.baseUrl()}/job/{self.__jobName}/{jobId}/api/json"
             entity = self.getEntity(uri)
 
             if entity != None:
@@ -48,27 +48,18 @@ class Jenkins:
         return list
 
     def getUriJenkinsInfo(self):
-        return f"http://{self.baseUrl}/job/{self.__jobName}/{self.__jobId}/api/json"
+        return f"http://{self.baseUrl()}/job/{self.__jobName}/{self.__jobId}/api/json"
 
     def getBluditPost(self):
-        post = Posts()
-        categories = {}
-        uri = self.getUriJenkinsInfo
+        categories = []
+        uri = self.getUriJenkinsInfo()
         entity = self.getEntity(uri)
 
         if entity != None:
-            result = json.dumps(entity)
-            job: Job = Job().getInstance(self.__jobName)
-            job.configJson = result
-            job.failures = self.getLastFailures
-            job.compilarV1 = self.__compilarV1
-            job.fileVersionPath = self.__fileVersionPath
+            result = entity
+            job = Job(categories=6, json=result, jobName="Instalador",failures=self.getLastFailures(), compilarV1=self.__compilarV1, fileVersionPath=self.__fileVersionPath)
 
-            categories.add(job.categories)
-
-            post.title = job.getTitle
-            post.content = job.getHtml
-            post.categories = categories
-            post.slug = job.getSlug
+            categories.append(job.categories)
+            post = Posts(title=job.getTitle, content=job.getHtml, slug=job.getSlug, categories=categories)
 
         return post

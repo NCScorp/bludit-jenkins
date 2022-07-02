@@ -1,6 +1,5 @@
-from job import Job
+from app import App
 
-jobs = Job()
+x = App()
 
-print(vars(jobs))
-
+print(vars(x))

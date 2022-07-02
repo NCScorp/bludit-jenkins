@@ -73,43 +73,34 @@
 
 # print(pay['changeSet']['items'])
 
-# class Teste:
-#     def __init__(self, json):
-#         self._json = json
+class Teste:
+    def __init__(self, json):
+        self._json = json
 
-#     @property
-#     def jsonObj(self):
-#         return str(self._json)
+    @property
+    def jsonObj(self):
+        return str(self._json)
 
-#     @jsonObj.setter
-#     def jsonObj(self, json):
-#         self._json = str(json)
+    @jsonObj.setter
+    def jsonObj(self, json):
+        self._json = str(json)
     
-#     def zica(self, zz):
-#         return f"zz {zz}"
+    def zica(self, zz):
+        return f"zz {zz}"
     
-#     def ray(self):
-#         return []
+    def ray(self):
+        return []
+    
+    def lebo(self):
+        return "opa vle"
 
     
-# x = Teste({"key": "value"})
-# print(x.jsonObj)
+x = Teste({"key": "value"})
+print(x.jsonObj)
 
-# x.jsonObj = {"opa": "bão"}
-# print(x.jsonObj)
+x.jsonObj = {"opa": "bão"}
+print(x.jsonObj)
 
-# print(x.zica("itaa"))
+print(x.zica("itaa"))
 
-# x.ray = ["teste", "sasa", 2, "zae"]
-
-# print(x.ray)
-# print(type(x.ray))
-
-fruta  = ['banana', 'estrogone', 'lebolebo']
-legume = ['cenoura', 'xa', 'fodase']
-
-# legume += fruta
-
-lista_do_marinalva = ['raulgil', 'estrogone', 'lebolebo']    
-legume += [i for i in fruta if i in lista_do_marinalva]
-print(legume)
+print(x.lebo())
