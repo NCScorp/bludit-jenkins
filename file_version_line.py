@@ -1,8 +1,8 @@
+from datetime import datetime
+
 class FileVersionLine:
-    def __init__(self, nameExe, versionExe, dateRelease):
+    def __init__(self, nameExe):
         self.__nameExe = nameExe
-        self.__versionExe = versionExe
-        self.__dateRelease = dateRelease
 
     exceptionList = [
         "nsjAssinatura.exe",
@@ -15,44 +15,30 @@ class FileVersionLine:
         "nsjReinfNET.exe",
         "nsjScrittaImportador.exe",
         "nsjWs.exe",
-        "ImpCNPJWeb.exe"
+        "ImpCNPJWeb.exe",
     ]
-
-    @property
-    def description(self):
-        description = self.__nameExe
-
-        description = description.replace("nsj", "")
-        description = description.replace(".exe", "")
-
-        return description.strip()
-
+    
     def canShow(self):
         if not self.__nameExe in self.exceptionList:
-            return self.exceptionList
-    
-    @property
-    def nameExe(self):
-        return self.__nameExe
+           return True
+        else:
+            pass
 
-    @nameExe.setter
-    def nameExe(self, nameExe):
-        self.__nameExe = nameExe
+    def description(self):
+        desc = self.__nameExe
 
-    @property
-    def versionExe(self):
-        return self.__versionExe
+        desc = desc.replace('nsj', '')
+        desc = desc.replace('.exe', '')
 
-    @versionExe.setter
-    def versionExe(self, versionExe):
-        self.__versionExe = versionExe
+        return desc.strip()
 
-    @property
-    def dateRelease(self):
-        return self.__dateRelease
+    def getDate(self):
+        now = datetime.now()
+        dt_string = now.strftime("%d/%m/%Y")
+        
+        return dt_string
 
-    @dateRelease.setter
-    def dateRelease(self, dateRelease):
-        self.__dateRelease = dateRelease
-    
-    
+
+# teste = FileVersionLine("nsjCNPJWeb.exe")
+
+# print(teste.description())
