@@ -19,10 +19,7 @@ jobInstaladorJenkinsV2 = JobInstaladorJenkinsV2(args.b, args.f)
 
 post = Bludit(
     AUTHENTICATION, TOKEN_API, res["fullDisplayName"], jobInstaladorJenkinsV2.getHTML(res), res["displayName"], 
-    "categoria-marota"
+    args.j
 )
 
-print(post.doPost())
-
-print(jobInstaladorJenkinsV2.getHTML(res))
-
+post.doPost()

@@ -37,8 +37,3 @@ class FileVersionLine:
         dt_string = now.strftime("%d/%m/%Y")
         
         return dt_string
-
-
-# teste = FileVersionLine("nsjCNPJWeb.exe")
-
-# print(teste.description())
